@@ -10,7 +10,7 @@
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                credentials: "omit",
+                credentials: "include",
                 body: JSON.stringify({
                     username: email,
                     password: password,
