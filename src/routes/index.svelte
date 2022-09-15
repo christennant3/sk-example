@@ -1,18 +1,21 @@
 <script context="module">
 	export const prerender = true;
+	let message = '';
 </script>
 
 <script>
 	import Counter from "$lib/Counter.svelte";
 	import { onMount } from "svelte";
 
+
 	let message = "";
 	onMount(async () => {
 		const response = await fetch("http://localhost:44314/api/User", {
 			headers: { "Content-Type": "application/json" },
-			credentials: "omit",
+			credentials: "include",
 		});
 		const content = await response.json();
+		debugger;
 		console.log(content);
 	});
 </script>

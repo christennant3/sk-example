@@ -1,24 +1,42 @@
 <script>
+    	import axios from 'axios';
     let email = "";
     let password = "";
     let url = "http://localhost:44314/api/User/authenticate";
     var username = "admin";
 
     const submit = async () => {
-        let response = await fetch(
-            "http://localhost:44314/api/User/authenticate",
-            {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                credentials: "include",
-                body: JSON.stringify({
-                    username: email,
-                    password: password,
-                }),
-            }
-        );
-        let data = await response.json();
-        console.log(data);
+        // let response = await fetch(
+        //     "http://localhost:44314/api/User/authenticate",
+        //     {
+        //         method: "POST",
+        //         headers: { "Content-Type": "application/json" },
+        //         credentials: "include",
+        //         body: JSON.stringify({
+        //             username: email,
+        //             password: password,
+        //         }),
+        //     }
+        // );
+        // let data = await response.json();
+        // console.log(data);
+        debugger;
+        let e = email;
+        let p = password;
+        debugger;
+        axios.post('http://localhost:44314/api/User/authenticate', {
+        
+                username: email,
+                password: password,
+       
+        })
+        .then(function (response) {
+            let data = response.data;
+            console.log(data);
+        })
+        .catch(function (error) {
+            debugger;
+        })
 
     };
 </script>
