@@ -1,10 +1,10 @@
 <script>
-    	import axios from 'axios';
+    import axios from "axios";
     let email = "";
     let password = "";
     let url = "http://localhost:44314/api/User/authenticate";
     var username = "admin";
-
+    // fetch and axios code both hit the api but dont set a cookie - must be a diffrent backend setting
     const submit = async () => {
         // let response = await fetch(
         //     "http://localhost:44314/api/User/authenticate",
@@ -24,20 +24,18 @@
         let e = email;
         let p = password;
         debugger;
-        axios.post('http://localhost:44314/api/User/authenticate', {
-        
+        axios
+            .post("http://localhost:44314/api/User/authenticate", {
                 username: email,
                 password: password,
-       
-        })
-        .then(function (response) {
-            let data = response.data;
-            console.log(data);
-        })
-        .catch(function (error) {
-            debugger;
-        })
-
+            })
+            .then(function (response) {
+                let data = response.data;
+                console.log(data);
+            })
+            .catch(function (error) {
+                debugger;
+            });
     };
 </script>
 

@@ -10,7 +10,7 @@
 
 	let message = "";
 	onMount(async () => {
-		const response = await fetch("http://localhost:44314/api/User", {
+		const response = await fetch("http://localhost:44314/api/User/current", {
 			headers: { "Content-Type": "application/json" },
 			credentials: "include",
 		});
