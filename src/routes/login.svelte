@@ -20,10 +20,10 @@
         // );
         // let data = await response.json();
         // console.log(data);
-        debugger;
+        
         let e = email;
         let p = password;
-        debugger;
+        
         axios
             .post("http://localhost:44314/api/User/authenticate", {
                 username: email,
@@ -32,9 +32,12 @@
             .then(function (response) {
                 let data = response.data;
                 console.log(data);
+             
+                localStorage.setItem('t', data.token);
+
             })
             .catch(function (error) {
-                debugger;
+                
             });
     };
 </script>

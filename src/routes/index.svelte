@@ -1,22 +1,30 @@
 <script context="module">
 	export const prerender = true;
-	let message = '';
+	let message = "";
 </script>
 
 <script>
 	import Counter from "$lib/Counter.svelte";
 	import { onMount } from "svelte";
 
-
 	let message = "";
 	onMount(async () => {
-		const response = await fetch("http://localhost:44314/api/User/current", {
-			headers: { "Content-Type": "application/json" },
-			credentials: "include",
-		});
-		const content = await response.json();
-		debugger;
-		console.log(content);
+		// const response = await fetch("http://localhost:44314/api/User/current", {
+		// 	headers: { "Content-Type": "application/json" },
+		// 	credentials: "include",
+		// });
+		// const content = await response.json();
+		// debugger;
+		// console.log(content);
+
+		const url = "http://localhost:44314/api/User/current";
+		const token = '';
+		const config = {
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		};
+		axios.get(url, config);
 	});
 </script>
 
