@@ -1,6 +1,8 @@
 <script context="module">
+	import axios from "axios";
 	export const prerender = true;
 	let message = "";
+	let user = {}
 </script>
 
 <script>
@@ -18,13 +20,25 @@
 		// console.log(content);
 
 		const url = "http://localhost:44314/api/User/current";
-		const token = '';
-		const config = {
-			headers: {
-				Authorization: `Bearer ${token}`,
-			},
-		};
-		axios.get(url, config);
+		const token = localStorage.getItem("t");
+		if (token != null) {
+			const config = {
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			};
+			debugger;
+			axios
+				.get(url, config)
+				.then(function (response) {
+					let data = response.data;
+					console.log(data);
+					user = data;
+				})
+				.catch(function (error) {});
+		} else {
+			//not authorised
+		}
 	});
 </script>
 
