@@ -1,15 +1,15 @@
 <script context="module">
 	import axios from "axios";
 	export const prerender = true;
-	let message = "";
-	let user = {}
+	
 </script>
 
 <script>
 	import Counter from "$lib/Counter.svelte";
 	import { onMount } from "svelte";
 
-	let message = "";
+	let message = "test";
+	let user = {}
 	onMount(async () => {
 		// const response = await fetch("http://localhost:44314/api/User/current", {
 		// 	headers: { "Content-Type": "application/json" },
@@ -48,7 +48,7 @@
 </svelte:head>
 
 <section>
-	{message}
+	Hello {user.firstname} {message}
 	<h1>
 		<span class="welcome">
 			<picture>
